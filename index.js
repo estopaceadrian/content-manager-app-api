@@ -7,7 +7,6 @@ const path = require('path');
 const pathToFile = path.resolve('./data.json');
 
 // const cors = require('cors');
-
 // var corsOptions = {
 //   origin: 'http://localhost:3000',
 //   optionsSuccessStatus: 200,
@@ -19,6 +18,22 @@ app.use(express.json()); //use to get data of post
 
 app.get('/', (req, res) => {
   res.send('Hello World');
+});
+
+//Add resources
+app.get('/api/resources/:id', (req, res) => {
+  const resources = getResources();
+  const { id } = req.params;
+  const resource = resources.find((resource) => resource.id === id);
+  res.send(resource);
+});
+
+app.get('/api/activeresource', (req, res) => {
+  const resources = getResources();
+  const activeresource = resources.find(
+    (resource) => resource.status === 'active'
+  );
+  res.send(activeresource);
 });
 
 app.get('/api/resources', (req, res) => {
@@ -39,6 +54,37 @@ app.post('/api/resources', (req, res) => {
       return res.status(422).send('Cannot store data in the file!');
     }
     return res.send('Data has been received');
+  });
+});
+
+//Edit resources
+app.patch('/api/resources/:id', (req, res) => {
+  const resources = getResources();
+  const { id } = req.params;
+  const index = resources.findIndex((resource) => resource.id === id);
+
+  const activeResource = resources.find(
+    (resource) => resource.status === 'active'
+  );
+
+  resources[index] = req.body;
+
+  //active resource related functionality
+  if (req.body.status === 'active') {
+    if (activeResource) {
+      return res.status(422).send('There is active resource already!');
+    }
+
+    resources[index].status = 'active';
+    resources[index].activationTime = new Date();
+  }
+  //active resource related functionality
+
+  fs.writeFile(pathToFile, JSON.stringify(resources, null, 2), (error) => {
+    if (error) {
+      return res.status(422).send('Cannot update data in the file!');
+    }
+    return res.send('Data has been Updated');
   });
 });
 
