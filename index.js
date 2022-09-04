@@ -62,10 +62,15 @@ app.patch('/api/resources/:id', (req, res) => {
   const resources = getResources();
   const { id } = req.params;
   const index = resources.findIndex((resource) => resource.id === id);
-
   const activeResource = resources.find(
     (resource) => resource.status === 'active'
   );
+
+  if (resources[index].status === 'complete') {
+    return res
+      .status(422)
+      .send('Cannot update because resource has been completed!');
+  }
 
   resources[index] = req.body;
 

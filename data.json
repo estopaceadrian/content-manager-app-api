@@ -1,24 +1,35 @@
 [
   {
-    "title": "Reusable components Updating again and again!!",
-    "description": "Updated Description!",
+    "title": "New Article",
+    "description": "Learn this resource",
+    "link": "known.com",
+    "priority": "2",
+    "timeToFinish": 1,
+    "createdAt": "2022-09-04T06:33:39.016Z",
+    "status": "inactive",
+    "id": "1662273219016"
+  },
+  {
+    "title": "Reusable components Updating again and again!!~~",
+    "description": "Updated Description! Update!",
     "link": "test 12321",
     "priority": "2",
-    "timeToFinish": "160",
+    "timeToFinish": 1,
     "createdAt": "2022-09-03T10:13:59.050Z",
-    "status": "active",
+    "status": "complete",
     "id": "1662200039050",
-    "activationTime": "2022-09-04T03:43:07.007Z"
+    "activationTime": "2022-09-04T05:46:02.823Z"
   },
   {
     "title": "Updated Test Title ",
     "description": "Updated description",
     "link": "g",
     "priority": "2",
-    "timeToFinish": 60,
+    "timeToFinish": 1,
     "createdAt": "2022-09-03T08:26:40.441Z",
-    "status": "inactive",
-    "id": "1662193600441"
+    "status": "complete",
+    "id": "1662193600441",
+    "activationTime": "2022-09-04T05:57:54.985Z"
   },
   {
     "title": "unshifted text",
@@ -46,6 +57,7 @@
     "description": "I would like to learn singleton in JS language, it's important to my resources",
     "link": "https://link.com",
     "image": "https://image.com",
+    "createdAt": "2022-09-03T08:26:40.441Z",
     "priority": 3,
     "timeToFinish": 120,
     "status": "inactive"
@@ -56,6 +68,7 @@
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod tempore eaque, dignissimos amet vitae adipisci nam aspernatur quae totam sapiente facilis est perferendis maxime. Asperiores perferendis adipisci temporibus aliquid iure?",
     "link": "https://link.com",
     "image": "https://image.com",
+    "createdAt": "2022-09-03T08:26:40.441Z",
     "priority": 2,
     "timeToFinish": 60,
     "status": "inactive"
@@ -67,6 +80,7 @@
     "link": "https://link.com",
     "image": "https://image.com",
     "priority": 1,
+    "createdAt": "2022-09-03T08:26:40.441Z",
     "timeToFinish": 30,
     "status": "inactive"
   },
